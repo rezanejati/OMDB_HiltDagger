@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Omdb-m</string>
+    <string name="text_no_connectivity">No Connection</string>
+    <string name="text_connectivity">Back Online</string>
+    <string name="text_header">Header</string>
+    <string name="exit_dialog_message">Are you sure you want to exit?</string>
+    <string name="exit_dialog_title">Exit?</string>
+    <string name="option_yes">Yes</string>
+    <string name="option_no">No</string>
+    <string name="share_message">share text to ...</string>
+    <string name="votes">Votes</string>
+    <string name="rating">Rating</string>
+    <string name="total_seasons">Total Seasons</string>
+    <string name="overview">Overview</string>
+    <string name="actors">Actors</string>
+    <string name="writer">Writer</string>
+    <string name="director">Director</string>
+    <string name="released">Released</string>
+    <string name="language">Language</string>
+    <string name="country">Country</string>
+    <string name="awards">Awards</string>
+    <string name="meta_score">Meta Score</string>
+    <string name="detail_title">Movie Info</string>
+    <string name="share">Share</string>
+    <string name="not_search">Please use the search icon at the top of this page to search for the movie</string>
+    <string name="toolbar_main_title">Movie Search</string>
+    <string name="movie">Movie</string>
+    <string name="series">Series</string>
+    <string name="error_count_character">Please enter at least 3 characters</string>
+    <string name="offline">Offline Data, total result is %s</string>
+    <string name="ok">OK</string>
+    <string name="error">Error</string>
+    <string name="total_result_is">Total result is %s</string>
+    <string name="netwotk_error">Network error! Can\'t get result.</string>
+</resources>

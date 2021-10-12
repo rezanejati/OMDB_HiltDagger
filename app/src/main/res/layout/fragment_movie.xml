@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="reza.nejati.omdb.ui.main.fragment.MovieViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:tools="http://schemas.android.com/tools">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:visibility="@{viewModel.waitingForSearch? View.VISIBLE : View.GONE}"
+            android:layout_marginStart="@dimen/dimen_20"
+            android:background="@drawable/gray_background"
+            android:layout_marginEnd="@dimen/dimen_20"
+            android:padding="@dimen/dimen_20">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/waite_search"
+                android:layout_width="@dimen/dimen_80"
+                android:layout_height="@dimen/dimen_80"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/tv_seacrh"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="search.json"
+                android:layout_marginBottom="@dimen/dimen_10"
+                app:lottie_loop="true" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_seacrh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:justificationMode="inter_word"
+                app:layout_constraintTop_toBottomOf="@+id/waite_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:textColor="@color/textColor"
+                android:text="@string/not_search"
+                android:textSize="@dimen/dimen_16sp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/movies_loading"
+            android:layout_width="@dimen/dimen_80"
+            android:layout_height="@dimen/dimen_80"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movies_recyclerview"
+            app:lottie_autoPlay="true"
+            android:visibility="@{viewModel.isLoading? View.VISIBLE : View.GONE}"
+            app:lottie_fileName="loading.json"
+            android:layout_marginBottom="@dimen/dimen_10"
+            app:lottie_loop="true" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/movies_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="@{viewModel.waitingForSearch? View.GONE : View.VISIBLE}"
+            android:layoutAnimation="@anim/layout_animation_right_to_left"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/movies_loading"
+            tools:listitem="@layout/item_movie"
+            tools:itemCount="10" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
